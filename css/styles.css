@@ -1,0 +1,8 @@
+ul {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+ul:hover {
+  text-decoration: underline;
+}
