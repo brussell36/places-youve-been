@@ -1,18 +1,35 @@
 // UI Logic
 $(document).ready(function() {
-  $("ul").click(function () {
+  $(this).click(function () {
+    //$(this).children().append("<li>" + portland.fullInfo() + "</li>");
+    $(".result1").text(`${portland.fullInfo()}`);
+    $(".result2").text(`${seattle.fullInfo()}`);
+    $(".result3").text(`${barcelona.fullInfo()}`);
+    $(".result4").text(`${paris.fullInfo()}`);
+    $(".result5").text(`${sydney.fullInfo()}`);
+    $(".result6").text(`${kangarooIsland.fullInfo()}`);
+    $(".result7").text(`${auckland.fullInfo()}`);
+
   });
 });
 
-// Business Logic
+// Business Logic for TravelLog
 function TravelLog() {
   this.places = [];
+  this.currentId = 0;
 }
 
 TravelLog.prototype.addPlace = function(place) {
+  place.id = this.assignId();
   this.places.push(place);
 }
 
+TravelLog.prototype.assignId = function() {
+  this.currentId += 1;
+  return this.currentId;
+}
+
+// Business Logic for Place
 function Place(location, landmark, timeOfYear) {
   this.location = location;
   this.landmark = landmark;
