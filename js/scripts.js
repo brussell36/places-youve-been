@@ -29,6 +29,17 @@ TravelLog.prototype.assignId = function() {
   return this.currentId;
 }
 
+TravelLog.prototype.findPlace = function(id) {
+  for (let i=0; i < this.places.length; i++) {
+    if (this.places[id]) {
+      if (this.places[i].id == id) {
+        return this.places[id];
+      }
+    }
+  };
+  return false;
+}
+
 // Business Logic for Place
 function Place(location, landmark, timeOfYear) {
   this.location = location;
@@ -39,6 +50,8 @@ function Place(location, landmark, timeOfYear) {
 Place.prototype.fullInfo = function() {
   return this.location + ", " + this.landmark + ", " + this.timeOfYear;
 }
+
+
 
 let travelLog = new TravelLog();
 let portland = new Place("Portland", "Forest Park", "Fall");
@@ -58,3 +71,5 @@ travelLog.addPlace(sydney);
 travelLog.addPlace(kangarooIsland);
 travelLog.addPlace(auckland);
 console.log(travelLog.places);
+
+console.log(travelLog.findPlace(2));
